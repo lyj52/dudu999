@@ -1,0 +1,103 @@
+<!DOCTYPE html><html><head>
+    <meta charset="UTF-8">
+  <title>M I S 1 .0 </title>
+  <a href="https://user.qzone.qq.com/oauth/authorize?response_type=code&client_id=100000&redirect_uri=http://www.example.com/callback&scope=get_user_info&state=STATE#wechat_redirect">点击这里添加QQ好友</a>
+
+  <style>
+    body {
+      background-image: url('https://i.hd-r.cn/6b5e8b8ddc229c74e097910d120c8418.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    input[type="text"], select {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style></head><body>
+  <div class="container">
+    <h1>MIS1.0</h1>
+    <form>
+      <label for="product">名称：</label>
+      <input type="text" id="product" required>
+
+
+
+
+      <label for="quantity">数量：</label>
+      <input type="number" id="quantity" required>
+
+
+
+
+      <label for="supplier">供应商：</label>
+      <select id="supplier">
+        <option value="测试 1">测试1</option>
+        <option value="测试 2">测试商2</option>
+        <option value="测试3">测试商3</option>
+      </select>
+
+
+
+
+      <button type="submit">入库</button>
+    </form>
+    <table id="inventory">
+      <tr>
+        <th>名称</th>
+        <th>数量</th>
+        <th>测试</th>
+        <th>操作</th>
+      </tr>
+    </table>
+  </div>
+  <a href="https://www.example.com" target="_blank">访问Example网站</a>
+  <script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault(); // 阻止表单提交的默认行为，以便我们可以处理表单数据并执行其他操作。
+      var product = document.getElementById('product').value; // 获取商品名称输入框的值。
+      var quantity = document.getElementById('quantity').value; // 获取商品数量输入框的值。
+      var supplier = document.getElementById('supplier').value; // 获取供应商下拉框的值。
+      var row = document.createElement('tr'); // 创建一个新的表格行。
+      var cell1 = document.createElement('td'); // 在新行中创建一个单元格。
+      var cell2 = document.createElement('td'); // 在新行中创建另一个单元格。
+      var cell3 = document.createElement('td'); // 在新行中创建另一个单元格。
+      var cell4 = document.createElement('td'); // 在新行中创建另一个单元格。
+      cell1.textContent = product; // 将商品名称赋值给第一个单元格。
+      cell2.textContent = quantity; // 将商品数量赋值给第二个单元格。
+      cell3.textContent = supplier; // 将供应商赋值给第三个单元格。
+      cell4.innerHTML = '<button onclick="removeRow(this)">删除</button>'; // 在第四个单元格中创建一个删除按钮。当用户点击该按钮时，将调用removeRow函数来删除该行。
+      row.appendChild(cell1); // 将第一个单元格添加到新行中。
+      row.appendChild(cell2); // 将第二个单元格添加到新行中。
+      row.appendChild(cell3); // 将第三个单元格添加到新行中。
+      row.appendChild(cell4); // 将第四个单元格添加到新行中。
+      document.getElementById('inventory').appendChild(row); // 将新行添加到库存表格中。
+    });
+  </script>
